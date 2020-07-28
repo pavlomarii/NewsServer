@@ -86,7 +86,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 // Route for Logout Users.
-// Це залишилось від сесій. Можливо, непотрібне, при токен авторизації.
+// Це залишилось від сесій. Можливо, непотрібне при токен авторизації.
 router.get('/logout', (req, res, next) => {
 
     // Clear all info about session, logout and redirect to main route.

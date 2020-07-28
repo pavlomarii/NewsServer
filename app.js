@@ -1,14 +1,15 @@
 // Modules needed.
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var passport = require('passport');
-var config = require('./config');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const passport = require('passport');
+const config = require('./config');
 
 // Import Routers.
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const articleRouter = require('./routes/articleRouter');
 
 // Connecting to MongoDB.
 const mongoose = require('mongoose');
@@ -43,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Use of Routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/articles', articleRouter);
 
 // Catch 404 and forward to Error Handler.
 app.use(function (req, res, next) {
